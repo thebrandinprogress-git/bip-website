@@ -1,0 +1,96 @@
+---
+const title = 'Brand in Progress — Product Design & Manufacturing';
+const description =
+  'Product development company in Hong Kong. We turn innovative concepts into reality — from research to production and distribution.';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/logo.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<main>
+			<img src="/logo.png" alt="Brand in Progress logo" class="logo" />
+			<h1>Brand in Progress</h1>
+			<p class="tagline">Product Design &amp; Manufacturing</p>
+			<p class="intro">
+				We turn innovative concepts into reality — from in-depth research to flawless
+				production and distribution.
+			</p>
+			<a class="cta" href="mailto:hello@brand-in-progress.com">Get in touch</a>
+			<p class="note">Full website coming soon</p>
+		</main>
+	</body>
+</html>
+
+<style>
+	:root {
+		--brand: #f5b800;
+		--ink: #1a1a1a;
+	}
+	* {
+		margin: 0;
+		box-sizing: border-box;
+	}
+	body {
+		font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+		background: #ffffff;
+		color: var(--ink);
+		min-height: 100vh;
+		display: grid;
+		place-items: center;
+		padding: 2rem;
+	}
+	main {
+		text-align: center;
+		max-width: 34rem;
+	}
+	.logo {
+		width: 140px;
+		height: auto;
+		margin-bottom: 1.5rem;
+	}
+	h1 {
+		font-size: 2rem;
+		letter-spacing: 0.02em;
+	}
+	.tagline {
+		color: var(--brand);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.85rem;
+		margin: 0.5rem 0 1.25rem;
+	}
+	.intro {
+		line-height: 1.6;
+		color: #444;
+		margin-bottom: 2rem;
+	}
+	.cta {
+		display: inline-block;
+		background: var(--ink);
+		color: #fff;
+		text-decoration: none;
+		font-weight: 600;
+		padding: 0.85rem 2rem;
+		border-radius: 999px;
+		transition: background 0.2s ease;
+	}
+	.cta:hover {
+		background: var(--brand);
+		color: var(--ink);
+	}
+	.note {
+		margin-top: 2.5rem;
+		font-size: 0.8rem;
+		color: #999;
+	}
+</style>
