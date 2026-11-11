@@ -1,96 +1,588 @@
 ---
-const title = 'Brand in Progress — Product Design & Manufacturing';
-const description =
-  'Product development company in Hong Kong. We turn innovative concepts into reality — from research to production and distribution.';
+import Base from '../layouts/Base.astro';
+
+const cases = [
+	{
+		img: '/images/goggles.jpg',
+		title: 'GOGURU Swimming Goggles',
+		sector: 'Sport Equipment',
+		text: 'A new goggle combining the reliability of sport equipment with the elegance of a fashion accessory — from concept to production-ready product.',
+	},
+	{
+		img: '/images/grip.jpg',
+		title: 'Ergonomic Scuba Hand Grip',
+		sector: 'Diving Industry',
+		text: 'Engineered inside-out for a leading Italian diving brand: the internal mechanism first, then an ergonomic shell built around it.',
+	},
+	{
+		img: '/images/medical.jpg',
+		title: 'ADIPOPIMER Medical Device',
+		sector: 'Medical',
+		text: 'A custom disposable device designed for a plastic surgery practice, making adipose tissue suitable for injection with standard syringes.',
+	},
+	{
+		img: '/images/toys.jpg',
+		title: 'Frozen 2 Licensed Toys',
+		sector: 'Toys & Entertainment',
+		text: 'Wearable and collectible toys developed for Giochi Preziosi under the Disney Frozen 2 franchise — from mechanism to shelf.',
+	},
+	{
+		img: '/images/riviera.jpg',
+		title: 'Riviera Beach Collection',
+		sector: 'Fashion — RIVIERA',
+		text: 'A full end-to-end collection: bucket bags and flip-flops across 16 SKUs, from 2D drawings and material research to the marketing photoshoot.',
+	},
+];
+
+const categories = [
+	{ img: '/images/cat-fashion.jpg', name: 'Fashion & Accessories', detail: 'Rivierina bags, flip-flops, camo swimwear — RIVIERA · REPLAY' },
+	{ img: '/images/cat-sport.jpg', name: 'Sport & Outdoor', detail: 'OCULUS swim collection · Carrera Sport' },
+	{ img: '/images/cat-toys.jpg', name: 'Toys & Collectibles', detail: 'Interchangeable watches · Disney Frozen 2 figures' },
+	{ img: '/images/medical.jpg', name: 'Medical & Beauty', detail: 'Custom devices for clinical professionals' },
+	{ img: null, name: 'Electronics', detail: 'SnapWireless — consumer electronics sourcing & development' },
+	{ img: '/images/cat-content.jpg', name: 'Digital & Content', detail: 'Web design · product & lifestyle photography' },
+];
+
+const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', 'Carrera Sport', 'REPLAY', 'SnapWireless'];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="/logo.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content={description} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
-		<title>{title}</title>
-	</head>
-	<body>
-		<main>
-			<img src="/logo.png" alt="Brand in Progress logo" class="logo" />
-			<h1>Brand in Progress</h1>
-			<p class="tagline">Product Design &amp; Manufacturing</p>
-			<p class="intro">
-				We turn innovative concepts into reality — from in-depth research to flawless
-				production and distribution.
-			</p>
-			<a class="cta" href="mailto:hello@brand-in-progress.com">Get in touch</a>
-			<p class="note">Full website coming soon</p>
-		</main>
-	</body>
-</html>
+<Base
+	title="Brand in Progress — Product Sourcing & Development in Asia"
+	description="Your product sourcing partner in Hong Kong. OEM sourcing, ODM design & engineering, production and quality control — from first sample to finished product."
+>
+	<header class="nav">
+		<div class="wrap nav-inner">
+			<a href="#top" class="brand">
+				<img src="/logo.png" alt="Brand in Progress" width="36" height="36" />
+				<span>Brand in Progress</span>
+			</a>
+			<nav>
+				<a href="#services">Services</a>
+				<a href="#work">Work</a>
+				<a href="#about">About</a>
+				<a href="#contact" class="btn btn-sm">Contact</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top">
+		<!-- HERO -->
+		<section class="hero">
+			<div class="wrap hero-inner">
+				<div>
+					<p class="kicker">Product Sourcing & Development — Hong Kong</p>
+					<h1>Find it.<br />Make it.<br /><span>Ship it.</span></h1>
+					<p class="hero-sub">
+						Your product sourcing partner in Asia. We connect you with the right
+						manufacturers — and when off-the-shelf isn't enough, we design and
+						engineer it ourselves.
+					</p>
+					<a class="btn" href="#contact">Tell us about your product</a>
+				</div>
+				<img class="hero-img" src="/images/goggles.jpg" alt="GOGURU swimming goggles designed by Brand in Progress" />
+			</div>
+		</section>
+
+		<!-- TRUSTED BY -->
+		<section class="trusted">
+			<div class="wrap">
+				<p class="kicker">Trusted by teams at</p>
+				<ul>
+					{clients.map((c) => <li>{c}</li>)}
+				</ul>
+			</div>
+		</section>
+
+		<!-- SERVICES -->
+		<section id="services">
+			<div class="wrap">
+				<p class="kicker">What we do</p>
+				<h2>Start with sourcing.<br />Scale to full development.</h2>
+				<div class="services-grid">
+					<article>
+						<span class="num">01</span>
+						<h3>Sourcing & Supplier Matching <em>OEM</em></h3>
+						<p>
+							We find, vet, and negotiate with the right manufacturers for your
+							product. Samples, pricing, and factory audits — handled for you.
+						</p>
+					</article>
+					<article>
+						<span class="num">02</span>
+						<h3>Product Design & Engineering <em>ODM</em></h3>
+						<p>
+							When your product doesn't exist yet: concept design, 3D modeling,
+							mechanism engineering, materials research, design-for-manufacturing.
+						</p>
+					</article>
+					<article>
+						<span class="num">03</span>
+						<h3>Production & Quality Control</h3>
+						<p>
+							On-the-ground production management, quality inspections, and
+							logistics — through to distribution.
+						</p>
+					</article>
+					<article>
+						<span class="num">04</span>
+						<h3>Brand & Content</h3>
+						<p>
+							Product photography, web design, and launch content that carries your
+							product's identity to market.
+						</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- FEATURED WORK -->
+		<section id="work" class="work">
+			<div class="wrap">
+				<p class="kicker">Featured work</p>
+				<h2>Case studies</h2>
+				<div class="cases">
+					{
+						cases.map((c) => (
+							<article class="case-card">
+								<img src={c.img} alt={c.title} loading="lazy" />
+								<div class="case-body">
+									<p class="kicker">{c.sector}</p>
+									<h3>{c.title}</h3>
+									<p>{c.text}</p>
+								</div>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- CATEGORIES -->
+		<section class="cats">
+			<div class="wrap">
+				<p class="kicker">Explore by category</p>
+				<h2>Whatever your product, we've been there.</h2>
+				<div class="cats-grid">
+					{
+						categories.map((c) => (
+							<article class="cat-card">
+								{c.img ? (
+									<img src={c.img} alt={c.name} loading="lazy" />
+								) : (
+									<div class="cat-placeholder" aria-hidden="true">BIP</div>
+								)}
+								<h3>{c.name}</h3>
+								<p>{c.detail}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+
+		<!-- ABOUT -->
+		<section id="about" class="about">
+			<div class="wrap about-inner">
+				<div>
+					<p class="kicker">About us</p>
+					<h2>A bridge between Europe and Asia's factory floor.</h2>
+					<p>
+						Brand in Progress is a product sourcing and development company based in
+						Hong Kong, founded by <strong>Gianluca Accardo</strong> — a product
+						development engineer with 20 years of experience across design,
+						industrial production, and corporate operations between Europe and Asia.
+					</p>
+					<p>
+						From a family workshop in Italy to projects for global brands like
+						Disney, REPLAY, and Safilo, Gianluca built the network and the know-how
+						we now put to work for our clients: factories vetted in person, and an
+						engineer who speaks both languages — literally and technically.
+					</p>
+					<p>
+						Whether you need a reliable partner to source an existing product or a
+						team to develop one from scratch, we work side by side with you — from
+						first sketch or first sample to the finished product on the shelf.
+					</p>
+				</div>
+				<ul class="stats">
+					<li><strong>20</strong><span>years of experience</span></li>
+					<li><strong>HK</strong><span>based, Asia-wide network</span></li>
+					<li><strong>8</strong><span>global brands served</span></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- CONTACT -->
+		<section id="contact" class="contact">
+			<div class="wrap contact-inner">
+				<p class="kicker">Contact</p>
+				<h2>Think we'd be a good fit for your business?</h2>
+				<p>Get in touch today to set up an initial meeting.</p>
+				<div class="contact-actions">
+					<a class="btn" href="mailto:the.brand.in.progress@gmail.com">the.brand.in.progress@gmail.com</a>
+				</div>
+				<ul class="contact-meta">
+					<li>33-35 Hillier St, Sheung Wan, Hong Kong</li>
+					<li>
+						<a href="https://www.linkedin.com/company/brand-in-progress-development/" target="_blank" rel="noopener">LinkedIn</a>
+					</li>
+					<li>
+						<a href="https://www.instagram.com/brand.in.progress" target="_blank" rel="noopener">Instagram</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="wrap footer-inner">
+			<img src="/logo.png" alt="" width="28" height="28" />
+			<p>© 2026 Brand in Progress — Hong Kong</p>
+		</div>
+	</footer>
+</Base>
 
 <style>
-	:root {
-		--brand: #f5b800;
-		--ink: #1a1a1a;
+	/* NAV */
+	.nav {
+		position: sticky;
+		top: 0;
+		background: rgba(250, 250, 248, 0.92);
+		backdrop-filter: blur(8px);
+		border-bottom: 1px solid var(--line);
+		z-index: 10;
 	}
-	* {
-		margin: 0;
-		box-sizing: border-box;
+	.nav-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.7rem 1.5rem;
 	}
-	body {
-		font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-		background: #ffffff;
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		text-decoration: none;
 		color: var(--ink);
-		min-height: 100vh;
-		display: grid;
-		place-items: center;
-		padding: 2rem;
-	}
-	main {
-		text-align: center;
-		max-width: 34rem;
-	}
-	.logo {
-		width: 140px;
-		height: auto;
-		margin-bottom: 1.5rem;
-	}
-	h1 {
-		font-size: 2rem;
+		font-weight: 700;
 		letter-spacing: 0.02em;
 	}
-	.tagline {
-		color: var(--brand);
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		font-size: 0.85rem;
-		margin: 0.5rem 0 1.25rem;
+	.brand img {
+		border-radius: 6px;
 	}
-	.intro {
-		line-height: 1.6;
-		color: #444;
-		margin-bottom: 2rem;
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 1.4rem;
 	}
-	.cta {
-		display: inline-block;
-		background: var(--ink);
-		color: #fff;
+	nav a {
 		text-decoration: none;
-		font-weight: 600;
-		padding: 0.85rem 2rem;
-		border-radius: 999px;
-		transition: background 0.2s ease;
+		color: var(--ink);
+		font-weight: 500;
+		font-size: 0.95rem;
 	}
-	.cta:hover {
-		background: var(--brand);
+	nav a:hover {
+		color: var(--brand);
+	}
+	.btn-sm {
+		padding: 0.45rem 1.2rem;
+		font-size: 0.9rem;
+	}
+	nav a.btn-sm:hover {
 		color: var(--ink);
 	}
-	.note {
+
+	/* HERO */
+	.hero {
+		padding: 5rem 0 4rem;
+		background: linear-gradient(180deg, #fff 0%, var(--paper) 100%);
+	}
+	.hero-inner {
+		display: grid;
+		grid-template-columns: 1.15fr 0.85fr;
+		gap: 3rem;
+		align-items: center;
+	}
+	h1 {
+		font-size: clamp(2.6rem, 6vw, 4.4rem);
+		line-height: 1.02;
+		letter-spacing: -0.02em;
+		margin: 0.6rem 0 1.2rem;
+	}
+	h1 span {
+		color: var(--brand);
+	}
+	.hero-sub {
+		font-size: 1.1rem;
+		color: var(--muted);
+		max-width: 30rem;
+		margin-bottom: 1.8rem;
+	}
+	.hero-img {
+		border-radius: 18px;
+		box-shadow: 0 24px 60px rgba(20, 20, 20, 0.14);
+	}
+
+	/* TRUSTED */
+	.trusted {
+		padding: 2.2rem 0;
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+	.trusted ul {
+		list-style: none;
+		padding: 0;
+		margin-top: 0.9rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem 2.2rem;
+	}
+	.trusted li {
+		font-weight: 700;
+		font-size: 1.05rem;
+		letter-spacing: 0.03em;
+		color: #3a3a3a;
+	}
+
+	/* SERVICES */
+	.services-grid {
 		margin-top: 2.5rem;
-		font-size: 0.8rem;
-		color: #999;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.2rem;
+	}
+	.services-grid article {
+		background: #fff;
+		border: 1px solid var(--line);
+		border-radius: 14px;
+		padding: 1.6rem;
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease;
+	}
+	.services-grid article:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 14px 34px rgba(20, 20, 20, 0.08);
+	}
+	.num {
+		color: var(--brand);
+		font-weight: 800;
+		font-size: 0.9rem;
+	}
+	.services-grid h3 {
+		margin: 0.5rem 0 0.6rem;
+		font-size: 1.1rem;
+		line-height: 1.3;
+	}
+	.services-grid em {
+		font-style: normal;
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--brand);
+		border: 1px solid var(--brand);
+		border-radius: 999px;
+		padding: 0.1rem 0.5rem;
+		vertical-align: middle;
+		margin-left: 0.3rem;
+	}
+	.services-grid p {
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	/* CASE STUDIES */
+	.work {
+		background: #fff;
+		border-top: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+	.cases {
+		margin-top: 2.5rem;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 1.4rem;
+	}
+	.case-card {
+		grid-column: span 2;
+		border: 1px solid var(--line);
+		border-radius: 16px;
+		overflow: hidden;
+		background: var(--paper);
+		transition:
+			transform 0.15s ease,
+			box-shadow 0.15s ease;
+	}
+	.case-card:nth-child(1),
+	.case-card:nth-child(2) {
+		grid-column: span 3;
+	}
+	.case-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 16px 40px rgba(20, 20, 20, 0.1);
+	}
+	.case-card img {
+		width: 100%;
+		height: 240px;
+		object-fit: cover;
+		background: #fff;
+	}
+	.case-body {
+		padding: 1.3rem 1.4rem 1.5rem;
+	}
+	.case-body h3 {
+		margin: 0.35rem 0 0.5rem;
+		font-size: 1.15rem;
+	}
+	.case-body p {
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	/* CATEGORIES */
+	.cats-grid {
+		margin-top: 2.5rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+		gap: 1.2rem;
+	}
+	.cat-card {
+		border: 1px solid var(--line);
+		border-radius: 14px;
+		overflow: hidden;
+		background: #fff;
+	}
+	.cat-card img,
+	.cat-placeholder {
+		width: 100%;
+		height: 150px;
+		object-fit: cover;
+	}
+	.cat-placeholder {
+		display: grid;
+		place-items: center;
+		background: linear-gradient(135deg, var(--brand) 0%, #ffd75e 100%);
+		font-weight: 800;
+		font-size: 1.6rem;
+		color: var(--ink);
+		letter-spacing: 0.08em;
+	}
+	.cat-card h3 {
+		font-size: 1rem;
+		margin: 0.9rem 1rem 0.3rem;
+	}
+	.cat-card p {
+		color: var(--muted);
+		font-size: 0.87rem;
+		margin: 0 1rem 1rem;
+	}
+
+	/* ABOUT */
+	.about {
+		background: var(--ink);
+		color: #f3f1ec;
+	}
+	.about .kicker {
+		color: var(--brand);
+	}
+	.about-inner {
+		display: grid;
+		grid-template-columns: 1.4fr 0.6fr;
+		gap: 3rem;
+		align-items: start;
+	}
+	.about p {
+		margin-top: 1rem;
+		color: #cfccc4;
+	}
+	.about h2 {
+		margin-top: 0.6rem;
+	}
+	.stats {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		gap: 1.2rem;
+	}
+	.stats li {
+		border: 1px solid #333;
+		border-radius: 14px;
+		padding: 1.2rem 1.4rem;
+	}
+	.stats strong {
+		display: block;
+		font-size: 1.9rem;
+		color: var(--brand);
+	}
+	.stats span {
+		color: #cfccc4;
+		font-size: 0.9rem;
+	}
+
+	/* CONTACT */
+	.contact-inner {
+		text-align: center;
+		max-width: 46rem;
+	}
+	.contact h2 {
+		margin: 0.6rem 0 0.8rem;
+	}
+	.contact p {
+		color: var(--muted);
+	}
+	.contact-actions {
+		margin: 1.8rem 0 1.6rem;
+	}
+	.contact-meta {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.6rem 1.8rem;
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+	.contact-meta a {
+		color: var(--ink);
+		font-weight: 600;
+		text-decoration: none;
+		border-bottom: 2px solid var(--brand);
+	}
+	.contact-meta a:hover {
+		color: var(--brand);
+	}
+
+	/* FOOTER */
+	footer {
+		border-top: 1px solid var(--line);
+		padding: 1.4rem 0;
+	}
+	.footer-inner {
+		display: flex;
+		align-items: center;
+		gap: 0.7rem;
+		color: var(--muted);
+		font-size: 0.85rem;
+	}
+	.footer-inner img {
+		border-radius: 5px;
+	}
+
+	@media (max-width: 860px) {
+		.hero-inner,
+		.about-inner {
+			grid-template-columns: 1fr;
+		}
+		.hero-img {
+			max-width: 420px;
+		}
+		.case-card,
+		.case-card:nth-child(1),
+		.case-card:nth-child(2) {
+			grid-column: span 6;
+		}
+		nav a:not(.btn) {
+			display: none;
+		}
 	}
 </style>
