@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL, CONTACT_ADDRESS } from '../consts';
+---
+
+<Base
+	title="Terms of Use — Brand in Progress"
+	description="Terms of use for the Brand in Progress website."
+>
+	<main class="legal">
+		<div class="wrap">
+			<p class="kicker"><a href="/">← Back to home</a></p>
+			<h1>Terms of Use</h1>
+			<p class="updated">Last updated: November 2026</p>
+
+			<h2>1. About this website</h2>
+			<p>
+				This website is operated by Brand in Progress, {CONTACT_ADDRESS}
+				(<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>). It presents our
+				product sourcing and development services and portfolio.
+			</p>
+
+			<h2>2. Informational content</h2>
+			<p>
+				The content of this website is provided for general information only. Case
+				studies describe past projects and do not constitute an offer, a guarantee
+				of results, or professional advice. Brand names and client references are
+				shown to describe work performed and remain the property of their
+				respective owners.
+			</p>
+
+			<h2>3. Intellectual property</h2>
+			<p>
+				Unless otherwise stated, the text, design, and images on this website are
+				the property of Brand in Progress or used with permission. You may not
+				reproduce them without our written consent.
+			</p>
+
+			<h2>4. Contacting us</h2>
+			<p>
+				Messages sent through this website do not create a client relationship. Any
+				engagement is governed by a separate written agreement between you and
+				Brand in Progress.
+			</p>
+
+			<h2>5. Liability</h2>
+			<p>
+				We work to keep this website accurate and available, but it is provided
+				"as is". To the extent permitted by law, we are not liable for any loss
+				arising from the use of this website.
+			</p>
+
+			<h2>6. Governing law</h2>
+			<p>
+				These terms are governed by the laws of the Hong Kong Special
+				Administrative Region.
+			</p>
+		</div>
+	</main>
+</Base>
+
+<style>
+	.legal {
+		padding: 4rem 0 5rem;
+	}
+	.legal .wrap {
+		max-width: 44rem;
+	}
+	h1 {
+		font-size: 2.2rem;
+		margin: 0.5rem 0 0.2rem;
+	}
+	.updated {
+		color: var(--muted);
+		font-size: 0.9rem;
+		margin-bottom: 2rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+		margin: 1.8rem 0 0.5rem;
+	}
+	p {
+		color: #3d3d3d;
+		line-height: 1.7;
+	}
+	a {
+		color: var(--ink);
+		border-bottom: 2px solid var(--brand);
+		text-decoration: none;
+	}
+</style>

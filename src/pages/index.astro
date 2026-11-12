@@ -1,55 +1,73 @@
 ---
 import Base from '../layouts/Base.astro';
+import {
+	SITE_TITLE,
+	SITE_DESCRIPTION,
+	CONTACT_EMAIL,
+	CONTACT_ADDRESS,
+	LINKEDIN_URL,
+	INSTAGRAM_URL,
+	TURNSTILE_SITE_KEY,
+	CONTACT_FORM_ENABLED,
+} from '../consts';
 
 const cases = [
 	{
 		img: '/images/goggles.jpg',
 		title: 'GOGURU Swimming Goggles',
-		sector: 'Sport Equipment',
+		sector: 'Sport & Action',
 		text: 'A new goggle combining the reliability of sport equipment with the elegance of a fashion accessory — from concept to production-ready product.',
 	},
 	{
 		img: '/images/grip.jpg',
 		title: 'Ergonomic Scuba Hand Grip',
-		sector: 'Diving Industry',
+		sector: 'Ergonomic Design',
 		text: 'Engineered inside-out for a leading Italian diving brand: the internal mechanism first, then an ergonomic shell built around it.',
 	},
 	{
 		img: '/images/medical.jpg',
 		title: 'ADIPOPIMER Medical Device',
-		sector: 'Medical',
-		text: 'A custom disposable device designed for a plastic surgery practice, making adipose tissue suitable for injection with standard syringes.',
+		sector: 'Medical & Wellness',
+		text: 'A custom disposable device designed for KORPO, a medical company based in Genova, Italy — making adipose tissue suitable for injection with standard syringes.',
 	},
 	{
 		img: '/images/toys.jpg',
 		title: 'Frozen 2 Licensed Toys',
-		sector: 'Toys & Entertainment',
+		sector: 'Toys & Collectibles',
 		text: 'Wearable and collectible toys developed for Giochi Preziosi under the Disney Frozen 2 franchise — from mechanism to shelf.',
 	},
 	{
 		img: '/images/riviera.jpg',
 		title: 'Riviera Beach Collection',
-		sector: 'Fashion — RIVIERA',
+		sector: 'Fashion & Lifestyle — RIVIERA',
 		text: 'A full end-to-end collection: bucket bags and flip-flops across 16 SKUs, from 2D drawings and material research to the marketing photoshoot.',
 	},
 ];
 
 const categories = [
-	{ img: '/images/cat-fashion.jpg', name: 'Fashion & Accessories', detail: 'Rivierina bags, flip-flops, camo swimwear — RIVIERA · REPLAY' },
-	{ img: '/images/cat-sport.jpg', name: 'Sport & Outdoor', detail: 'OCULUS swim collection · Carrera Sport' },
-	{ img: '/images/cat-toys.jpg', name: 'Toys & Collectibles', detail: 'Interchangeable watches · Disney Frozen 2 figures' },
-	{ img: '/images/medical.jpg', name: 'Medical & Beauty', detail: 'Custom devices for clinical professionals' },
+	{ img: '/images/goggles.jpg', name: 'Sport & Action', detail: 'Swimming goggles, diving equipment and technical sport gear' },
+	{ img: '/images/cat-sport.jpg', name: 'Sport & Style', detail: 'OCULUS swim collection · Carrera Sport' },
+	{ img: '/images/cat-fashion.jpg', name: 'Fashion & Lifestyle', detail: 'RIVIERA bags, flip-flops & swimwear · REPLAY' },
+	{ img: null, name: 'Gifts & Premium', detail: 'Promotional products and kitchenware that bring joy to everyday life' },
+	{ img: '/images/cat-toys.jpg', name: 'Toys & Collectibles', detail: 'Disney Frozen 2 figures · interchangeable watches' },
+	{ img: '/images/medical.jpg', name: 'Medical & Wellness', detail: 'Custom devices for clinical professionals — KORPO, Genova' },
 	{ img: null, name: 'Electronics', detail: 'SnapWireless — consumer electronics sourcing & development' },
 	{ img: '/images/cat-content.jpg', name: 'Digital & Content', detail: 'Web design · product & lifestyle photography' },
 ];
 
-const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', 'Carrera Sport', 'REPLAY', 'SnapWireless'];
+const clients = [
+	{ name: 'Disney', logo: '/images/logos/disney.png' },
+	{ name: 'Giochi Preziosi', logo: '/images/logos/giochipreziosi.png' },
+	{ name: 'Safilo', logo: '/images/logos/safilo.png' },
+	{ name: 'Cressi Sub', logo: '/images/logos/cressi.png' },
+	{ name: 'MARES', logo: '/images/logos/mares.png' },
+	{ name: 'Carrera Sport', logo: null },
+	{ name: 'REPLAY', logo: '/images/logos/replay.png' },
+	{ name: 'SnapWireless', logo: '/images/logos/snapwireless.png' },
+];
 ---
 
-<Base
-	title="Brand in Progress — Product Sourcing & Development in Asia"
-	description="Your product sourcing partner in Hong Kong. OEM sourcing, ODM design & engineering, production and quality control — from first sample to finished product."
->
+<Base title={SITE_TITLE} description={SITE_DESCRIPTION}>
 	<header class="nav">
 		<div class="wrap nav-inner">
 			<a href="#top" class="brand">
@@ -60,7 +78,7 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 				<a href="#services">Services</a>
 				<a href="#work">Work</a>
 				<a href="#about">About</a>
-				<a href="#contact" class="btn btn-sm">Contact</a>
+				<a href="#contact" class="btn-nav">Contact</a>
 			</nav>
 		</div>
 	</header>
@@ -70,12 +88,12 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		<section class="hero">
 			<div class="wrap hero-inner">
 				<div>
-					<p class="kicker">Product Sourcing & Development — Hong Kong</p>
+					<p class="kicker">OEM Sourcing & Product Development — Hong Kong</p>
 					<h1>Find it.<br />Make it.<br /><span>Ship it.</span></h1>
 					<p class="hero-sub">
 						Your product sourcing partner in Asia. We connect you with the right
-						manufacturers — and when off-the-shelf isn't enough, we design and
-						engineer it ourselves.
+						manufacturers — and when you're ready to go beyond off-the-shelf, we
+						design and engineer your own custom product.
 					</p>
 					<a class="btn" href="#contact">Tell us about your product</a>
 				</div>
@@ -88,7 +106,14 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 			<div class="wrap">
 				<p class="kicker">Trusted by teams at</p>
 				<ul>
-					{clients.map((c) => <li>{c}</li>)}
+					{
+						clients.map((c) => (
+							<li>
+								{c.logo && <img src={c.logo} alt="" width="28" height="28" loading="lazy" />}
+								<span>{c.name}</span>
+							</li>
+						))
+					}
 				</ul>
 			</div>
 		</section>
@@ -97,7 +122,7 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		<section id="services">
 			<div class="wrap">
 				<p class="kicker">What we do</p>
-				<h2>Start with sourcing.<br />Scale to full development.</h2>
+				<h2>Start with sourcing.<br />Grow into your own product.</h2>
 				<div class="services-grid">
 					<article>
 						<span class="num">01</span>
@@ -111,8 +136,9 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 						<span class="num">02</span>
 						<h3>Product Design & Engineering <em>ODM</em></h3>
 						<p>
-							When your product doesn't exist yet: concept design, 3D modeling,
-							mechanism engineering, materials research, design-for-manufacturing.
+							The natural evolution of sourcing: when your product doesn't exist
+							yet — concept design, 3D modeling, mechanism engineering, materials
+							research, design-for-manufacturing.
 						</p>
 					</article>
 					<article>
@@ -144,7 +170,9 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 					{
 						cases.map((c) => (
 							<article class="case-card">
-								<img src={c.img} alt={c.title} loading="lazy" />
+								<div class="case-img">
+									<img src={c.img} alt={c.title} loading="lazy" />
+								</div>
 								<div class="case-body">
 									<p class="kicker">{c.sector}</p>
 									<h3>{c.title}</h3>
@@ -167,9 +195,11 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 						categories.map((c) => (
 							<article class="cat-card">
 								{c.img ? (
-									<img src={c.img} alt={c.name} loading="lazy" />
+									<div class="cat-img">
+										<img src={c.img} alt={c.name} loading="lazy" />
+									</div>
 								) : (
-									<div class="cat-placeholder" aria-hidden="true">BIP</div>
+									<div class="cat-img cat-placeholder" aria-hidden="true">BIP</div>
 								)}
 								<h3>{c.name}</h3>
 								<p>{c.detail}</p>
@@ -218,16 +248,52 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 				<p class="kicker">Contact</p>
 				<h2>Think we'd be a good fit for your business?</h2>
 				<p>Get in touch today to set up an initial meeting.</p>
-				<div class="contact-actions">
-					<a class="btn" href="mailto:the.brand.in.progress@gmail.com">the.brand.in.progress@gmail.com</a>
-				</div>
+
+				{
+					CONTACT_FORM_ENABLED ? (
+						<form id="contact-form" class="contact-form" novalidate>
+							<div class="form-row">
+								<label>
+									Name
+									<input type="text" name="name" required autocomplete="name" />
+								</label>
+								<label>
+									Email
+									<input type="email" name="email" required autocomplete="email" />
+								</label>
+							</div>
+							<label>
+								Subject
+								<input type="text" name="subject" required />
+							</label>
+							<label>
+								Message
+								<textarea name="message" rows="5" required />
+							</label>
+							<div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} />
+							<button type="submit" class="btn">Send message</button>
+							<p class="form-status" role="status" aria-live="polite" />
+						</form>
+					) : (
+						<div class="contact-actions">
+							<a class="btn" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+						</div>
+					)
+				}
+
 				<ul class="contact-meta">
-					<li>33-35 Hillier St, Sheung Wan, Hong Kong</li>
+					<li>{CONTACT_ADDRESS}</li>
 					<li>
-						<a href="https://www.linkedin.com/company/brand-in-progress-development/" target="_blank" rel="noopener">LinkedIn</a>
+						<a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="Brand in Progress on LinkedIn">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+							LinkedIn
+						</a>
 					</li>
 					<li>
-						<a href="https://www.instagram.com/brand.in.progress" target="_blank" rel="noopener">Instagram</a>
+						<a href={INSTAGRAM_URL} target="_blank" rel="noopener" aria-label="Brand in Progress on Instagram">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+							Instagram
+						</a>
 					</li>
 				</ul>
 			</div>
@@ -238,8 +304,44 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		<div class="wrap footer-inner">
 			<img src="/logo.png" alt="" width="28" height="28" />
 			<p>© 2026 Brand in Progress — Hong Kong</p>
+			<span class="footer-links">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/terms">Terms of Use</a>
+			</span>
 		</div>
 	</footer>
+
+	{CONTACT_FORM_ENABLED && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />}
+
+	<script>
+		const form = document.getElementById('contact-form');
+		if (form) {
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				const status = form.querySelector('.form-status');
+				const btn = form.querySelector('button[type="submit"]');
+				btn.disabled = true;
+				status.textContent = 'Sending…';
+				try {
+					const res = await fetch('/api/contact', {
+						method: 'POST',
+						body: new FormData(form),
+					});
+					const data = await res.json();
+					if (res.ok && data.ok) {
+						status.textContent = 'Thanks for contacting us! We will get back to you shortly.';
+						form.reset();
+					} else {
+						status.textContent = data.error || 'Something went wrong. Please email us directly.';
+					}
+				} catch {
+					status.textContent = 'Network error. Please email us directly at the address below.';
+				} finally {
+					btn.disabled = false;
+				}
+			});
+		}
+	</script>
 </Base>
 
 <style>
@@ -284,12 +386,17 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 	nav a:hover {
 		color: var(--brand);
 	}
-	.btn-sm {
-		padding: 0.45rem 1.2rem;
-		font-size: 0.9rem;
+	.btn-nav {
+		background: var(--brand);
+		color: var(--ink) !important;
+		font-weight: 700 !important;
+		padding: 0.5rem 1.3rem;
+		border-radius: 999px;
+		transition: transform 0.15s ease, box-shadow 0.15s ease;
 	}
-	nav a.btn-sm:hover {
-		color: var(--ink);
+	.btn-nav:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 6px 16px rgba(245, 184, 0, 0.45);
 	}
 
 	/* HERO */
@@ -332,16 +439,26 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 	.trusted ul {
 		list-style: none;
 		padding: 0;
-		margin-top: 0.9rem;
+		margin-top: 1rem;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.8rem 2.2rem;
+		gap: 1rem 2rem;
+		align-items: center;
 	}
 	.trusted li {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
 		font-weight: 700;
-		font-size: 1.05rem;
-		letter-spacing: 0.03em;
+		font-size: 1.02rem;
+		letter-spacing: 0.02em;
 		color: #3a3a3a;
+	}
+	.trusted li img {
+		width: 28px;
+		height: 28px;
+		object-fit: contain;
+		border-radius: 6px;
 	}
 
 	/* SERVICES */
@@ -420,14 +537,17 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		transform: translateY(-4px);
 		box-shadow: 0 16px 40px rgba(20, 20, 20, 0.1);
 	}
-	.case-card img {
-		width: 100%;
-		height: 240px;
-		object-fit: cover;
+	.case-img {
 		background: #fff;
+		padding: 0.8rem;
+	}
+	.case-img img {
+		width: 100%;
+		height: 230px;
+		object-fit: contain;
 	}
 	.case-body {
-		padding: 1.3rem 1.4rem 1.5rem;
+		padding: 0.6rem 1.4rem 1.5rem;
 	}
 	.case-body h3 {
 		margin: 0.35rem 0 0.5rem;
@@ -451,13 +571,18 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		overflow: hidden;
 		background: #fff;
 	}
-	.cat-card img,
-	.cat-placeholder {
+	.cat-img {
+		background: #fff;
+		padding: 0.5rem;
+	}
+	.cat-img img {
 		width: 100%;
 		height: 150px;
-		object-fit: cover;
+		object-fit: contain;
 	}
 	.cat-placeholder {
+		height: 150px;
+		padding: 0;
 		display: grid;
 		place-items: center;
 		background: linear-gradient(135deg, var(--brand) 0%, #ffd75e 100%);
@@ -468,7 +593,7 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 	}
 	.cat-card h3 {
 		font-size: 1rem;
-		margin: 0.9rem 1rem 0.3rem;
+		margin: 0.7rem 1rem 0.3rem;
 	}
 	.cat-card p {
 		color: var(--muted);
@@ -526,11 +651,61 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 	.contact h2 {
 		margin: 0.6rem 0 0.8rem;
 	}
-	.contact p {
+	.contact > .wrap > p,
+	.contact-inner > p {
 		color: var(--muted);
 	}
 	.contact-actions {
 		margin: 1.8rem 0 1.6rem;
+	}
+	.contact-form {
+		margin: 2rem auto 1.6rem;
+		text-align: left;
+		display: grid;
+		gap: 1rem;
+		background: #fff;
+		border: 1px solid var(--line);
+		border-radius: 16px;
+		padding: 1.8rem;
+	}
+	.form-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+	.contact-form label {
+		display: grid;
+		gap: 0.35rem;
+		font-weight: 600;
+		font-size: 0.9rem;
+	}
+	.contact-form input,
+	.contact-form textarea {
+		font: inherit;
+		padding: 0.7rem 0.9rem;
+		border: 1px solid var(--line);
+		border-radius: 10px;
+		background: var(--paper);
+	}
+	.contact-form input:focus,
+	.contact-form textarea:focus {
+		outline: 2px solid var(--brand);
+		border-color: var(--brand);
+	}
+	.contact-form .btn {
+		border: none;
+		cursor: pointer;
+		font-size: 1rem;
+		justify-self: start;
+	}
+	.contact-form .btn:disabled {
+		opacity: 0.6;
+		cursor: wait;
+	}
+	.form-status {
+		font-size: 0.95rem;
+		color: var(--muted);
+		min-height: 1.2em;
 	}
 	.contact-meta {
 		list-style: none;
@@ -538,18 +713,26 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		align-items: center;
 		gap: 0.6rem 1.8rem;
 		color: var(--muted);
 		font-size: 0.95rem;
 	}
 	.contact-meta a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
 		color: var(--ink);
 		font-weight: 600;
 		text-decoration: none;
 		border-bottom: 2px solid var(--brand);
+		padding-bottom: 1px;
 	}
 	.contact-meta a:hover {
 		color: var(--brand);
+	}
+	.contact-meta svg {
+		flex: none;
 	}
 
 	/* FOOTER */
@@ -563,9 +746,22 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		gap: 0.7rem;
 		color: var(--muted);
 		font-size: 0.85rem;
+		flex-wrap: wrap;
 	}
 	.footer-inner img {
 		border-radius: 5px;
+	}
+	.footer-links {
+		margin-left: auto;
+		display: flex;
+		gap: 1.2rem;
+	}
+	.footer-links a {
+		color: var(--muted);
+		text-decoration: none;
+	}
+	.footer-links a:hover {
+		color: var(--brand);
 	}
 
 	@media (max-width: 860px) {
@@ -581,8 +777,11 @@ const clients = ['Disney', 'Giochi Preziosi', 'Safilo', 'Cressi Sub', 'MARES', '
 		.case-card:nth-child(2) {
 			grid-column: span 6;
 		}
-		nav a:not(.btn) {
+		nav a:not(.btn-nav) {
 			display: none;
+		}
+		.form-row {
+			grid-template-columns: 1fr;
 		}
 	}
 </style>

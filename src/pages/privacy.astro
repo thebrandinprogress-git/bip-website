@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL, CONTACT_ADDRESS } from '../consts';
+---
+
+<Base
+	title="Privacy Policy — Brand in Progress"
+	description="How Brand in Progress collects, uses, and protects your personal data."
+>
+	<main class="legal">
+		<div class="wrap">
+			<p class="kicker"><a href="/">← Back to home</a></p>
+			<h1>Privacy Policy</h1>
+			<p class="updated">Last updated: November 2026</p>
+
+			<h2>1. Who we are</h2>
+			<p>
+				Brand in Progress ("we", "us") is a product sourcing and development company
+				based at {CONTACT_ADDRESS}. You can reach us at
+				<a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+				We are the data controller for the personal data collected through this website.
+			</p>
+
+			<h2>2. What data we collect</h2>
+			<p>When you contact us through this website (form or email), we collect:</p>
+			<ul>
+				<li>Your name</li>
+				<li>Your email address</li>
+				<li>The subject and content of your message</li>
+			</ul>
+			<p>
+				We do not use advertising cookies, analytics trackers, or any form of
+				profiling. The contact form is protected by Cloudflare Turnstile, a
+				privacy-friendly anti-spam check that does not track you across websites.
+			</p>
+
+			<h2>3. Why we collect it (legal basis)</h2>
+			<p>
+				We use your data solely to respond to your enquiry and, if you become a
+				client, to prepare and perform our services. The legal basis is our
+				legitimate interest in replying to business enquiries and, where applicable,
+				pre-contractual steps at your request (Art. 6(1)(b) and 6(1)(f) GDPR).
+			</p>
+
+			<h2>4. Where your data is processed</h2>
+			<p>Your message passes through the following service providers, strictly to deliver it to us:</p>
+			<ul>
+				<li><strong>Cloudflare</strong> (hosting & spam protection)</li>
+				<li><strong>Resend</strong> (email delivery)</li>
+				<li><strong>Google Sheets</strong> (our internal contact log)</li>
+			</ul>
+			<p>
+				These providers process data on our behalf and may be located outside the
+				EU/EEA; transfers rely on their standard contractual safeguards. We never
+				sell or share your data with anyone else.
+			</p>
+
+			<h2>5. How long we keep it</h2>
+			<p>
+				Enquiry data is kept for up to 24 months, unless a business relationship
+				requires longer retention or you ask us to delete it sooner.
+			</p>
+
+			<h2>6. Your rights</h2>
+			<p>
+				If you are in the EU/EEA, you have the right to access, correct, delete, or
+				restrict the processing of your personal data, and to lodge a complaint with
+				your local data protection authority. To exercise any of these rights, email
+				us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> — we respond
+				within 30 days.
+			</p>
+
+			<h2>7. Changes</h2>
+			<p>
+				We may update this policy from time to time. The current version is always
+				published on this page.
+			</p>
+		</div>
+	</main>
+</Base>
+
+<style>
+	.legal {
+		padding: 4rem 0 5rem;
+	}
+	.legal .wrap {
+		max-width: 44rem;
+	}
+	h1 {
+		font-size: 2.2rem;
+		margin: 0.5rem 0 0.2rem;
+	}
+	.updated {
+		color: var(--muted);
+		font-size: 0.9rem;
+		margin-bottom: 2rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+		margin: 1.8rem 0 0.5rem;
+	}
+	p,
+	li {
+		color: #3d3d3d;
+		line-height: 1.7;
+	}
+	ul {
+		padding-left: 1.3rem;
+	}
+	a {
+		color: var(--ink);
+		border-bottom: 2px solid var(--brand);
+		text-decoration: none;
+	}
+</style>
