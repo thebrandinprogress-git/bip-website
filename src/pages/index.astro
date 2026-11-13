@@ -11,50 +11,6 @@ import {
 	CONTACT_FORM_ENABLED,
 } from '../consts';
 
-const cases = [
-	{
-		img: '/images/goggles.jpg',
-		title: 'GOGURU Swimming Goggles',
-		sector: 'Sport & Action',
-		text: 'A new goggle combining the reliability of sport equipment with the elegance of a fashion accessory — from concept to production-ready product.',
-	},
-	{
-		img: '/images/grip.jpg',
-		title: 'Ergonomic Scuba Hand Grip',
-		sector: 'Ergonomic Design',
-		text: 'Engineered inside-out for a leading Italian diving brand: the internal mechanism first, then an ergonomic shell built around it.',
-	},
-	{
-		img: '/images/medical.jpg',
-		title: 'ADIPOPIMER Medical Device',
-		sector: 'Medical & Wellness',
-		text: 'A custom disposable device designed for KORPO, a medical company based in Genova, Italy — making adipose tissue suitable for injection with standard syringes.',
-	},
-	{
-		img: '/images/toys.jpg',
-		title: 'Frozen 2 Licensed Toys',
-		sector: 'Toys & Collectibles',
-		text: 'Wearable and collectible toys developed for Giochi Preziosi under the Disney Frozen 2 franchise — from mechanism to shelf.',
-	},
-	{
-		img: '/images/riviera.jpg',
-		title: 'Riviera Beach Collection',
-		sector: 'Fashion & Lifestyle — RIVIERA',
-		text: 'A full end-to-end collection: bucket bags and flip-flops across 16 SKUs, from 2D drawings and material research to the marketing photoshoot.',
-	},
-];
-
-const categories = [
-	{ img: '/images/goggles.jpg', name: 'Sport & Action', detail: 'Swimming goggles, diving equipment and technical sport gear' },
-	{ img: '/images/cat-sport.jpg', name: 'Sport & Style', detail: 'OCULUS swim collection · Carrera Sport' },
-	{ img: '/images/cat-fashion.jpg', name: 'Fashion & Lifestyle', detail: 'RIVIERA bags, flip-flops & swimwear · REPLAY' },
-	{ img: null, name: 'Gifts & Premium', detail: 'Promotional products and kitchenware that bring joy to everyday life' },
-	{ img: '/images/cat-toys.jpg', name: 'Toys & Collectibles', detail: 'Disney Frozen 2 figures · interchangeable watches' },
-	{ img: '/images/medical.jpg', name: 'Medical & Wellness', detail: 'Custom devices for clinical professionals — KORPO, Genova' },
-	{ img: null, name: 'Electronics', detail: 'SnapWireless — consumer electronics sourcing & development' },
-	{ img: '/images/cat-content.jpg', name: 'Digital & Content', detail: 'Web design · product & lifestyle photography' },
-];
-
 const clients = [
 	{ name: 'Disney', logo: '/images/logos/disney.png' },
 	{ name: 'Giochi Preziosi', logo: '/images/logos/giochipreziosi.png' },
@@ -65,24 +21,52 @@ const clients = [
 	{ name: 'REPLAY', logo: '/images/logos/replay.png' },
 	{ name: 'SnapWireless', logo: '/images/logos/snapwireless.png' },
 ];
+
+const projects = [
+	{
+		img: '/images/goguru-lineup.jpg',
+		title: 'GOGURU Swimming Goggles',
+		sector: 'Sport & Action',
+		href: '/case-studies#goguru',
+	},
+	{
+		img: '/images/grip.jpg',
+		title: 'Ergonomic Scuba Grip',
+		sector: 'Ergonomic Design',
+		href: '/case-studies#grip',
+	},
+	{
+		img: '/images/medical.jpg',
+		title: 'ADIPOPIMER Medical Device',
+		sector: 'Medical — KORPO',
+		href: '/case-studies#medical',
+	},
+	{
+		img: '/images/toys.jpg',
+		title: 'Frozen 2 Licensed Toys',
+		sector: 'Toys — Disney / Giochi Preziosi',
+		href: '/case-studies#toys',
+	},
+	{
+		img: '/images/riviera.jpg',
+		title: 'Riviera Beach Collection',
+		sector: 'Fashion — RIVIERA',
+		href: '/case-studies#riviera',
+	},
+];
+
+const categoryLinks = [
+	{ name: 'Sport & Action', href: '/categories/sport' },
+	{ name: 'Toys & Collectibles', href: '/categories/toys' },
+	{ name: 'Fashion & Lifestyle', href: '/categories/fashion' },
+	{ name: 'Gifts & Premium', href: '/categories/premium' },
+	{ name: 'Medical & Wellness', href: '/categories/medical' },
+	{ name: 'Electronics', href: '/categories/electronics' },
+	{ name: 'Digital & Content', href: '/categories/digital' },
+];
 ---
 
 <Base title={SITE_TITLE} description={SITE_DESCRIPTION}>
-	<header class="nav">
-		<div class="wrap nav-inner">
-			<a href="#top" class="brand">
-				<img src="/logo.png" alt="Brand in Progress" width="36" height="36" />
-				<span>Brand in Progress</span>
-			</a>
-			<nav>
-				<a href="#services">Services</a>
-				<a href="#work">Work</a>
-				<a href="#about">About</a>
-				<a href="#contact" class="btn-nav">Contact</a>
-			</nav>
-		</div>
-	</header>
-
 	<main id="top">
 		<!-- HERO -->
 		<section class="hero">
@@ -97,7 +81,7 @@ const clients = [
 					</p>
 					<a class="btn" href="#contact">Tell us about your product</a>
 				</div>
-				<img class="hero-img" src="/images/goggles.jpg" alt="GOGURU swimming goggles designed by Brand in Progress" />
+				<img class="hero-img" src="/images/goguru-lineup.jpg" alt="GOGURU swimming goggles collection developed by Brand in Progress" />
 			</div>
 		</section>
 
@@ -161,93 +145,43 @@ const clients = [
 			</div>
 		</section>
 
-		<!-- FEATURED WORK -->
-		<section id="work" class="work">
+		<!-- MAIN PROJECTS -->
+		<section class="projects">
 			<div class="wrap">
-				<p class="kicker">Featured work</p>
-				<h2>Case studies</h2>
-				<div class="cases">
+				<p class="kicker">Selected work</p>
+				<h2>Main projects</h2>
+				<div class="proj-grid">
 					{
-						cases.map((c) => (
-							<article class="case-card">
-								<div class="case-img">
-									<img src={c.img} alt={c.title} loading="lazy" />
+						projects.map((p) => (
+							<a class="proj-card" href={p.href}>
+								<div class="proj-img">
+									<img src={p.img} alt={p.title} loading="lazy" />
 								</div>
-								<div class="case-body">
-									<p class="kicker">{c.sector}</p>
-									<h3>{c.title}</h3>
-									<p>{c.text}</p>
+								<div class="proj-body">
+									<p class="kicker">{p.sector}</p>
+									<h3>{p.title}</h3>
 								</div>
-							</article>
+							</a>
 						))
 					}
 				</div>
-			</div>
-		</section>
-
-		<!-- CATEGORIES -->
-		<section class="cats">
-			<div class="wrap">
-				<p class="kicker">Explore by category</p>
-				<h2>Whatever your product, we've been there.</h2>
-				<div class="cats-grid">
-					{
-						categories.map((c) => (
-							<article class="cat-card">
-								{c.img ? (
-									<div class="cat-img">
-										<img src={c.img} alt={c.name} loading="lazy" />
-									</div>
-								) : (
-									<div class="cat-img cat-placeholder" aria-hidden="true">BIP</div>
-								)}
-								<h3>{c.name}</h3>
-								<p>{c.detail}</p>
-							</article>
-						))
-					}
-				</div>
-			</div>
-		</section>
-
-		<!-- ABOUT -->
-		<section id="about" class="about">
-			<div class="wrap about-inner">
-				<div>
-					<p class="kicker">About us</p>
-					<h2>A bridge between Europe and Asia's factory floor.</h2>
-					<p>
-						Brand in Progress is a product sourcing and development company based in
-						Hong Kong, founded by <strong>Gianluca Accardo</strong> — a product
-						development engineer with 20 years of experience across design,
-						industrial production, and corporate operations between Europe and Asia.
-					</p>
-					<p>
-						From a family workshop in Italy to projects for global brands like
-						Disney, REPLAY, and Safilo, Gianluca built the network and the know-how
-						we now put to work for our clients: factories vetted in person, and an
-						engineer who speaks both languages — literally and technically.
-					</p>
-					<p>
-						Whether you need a reliable partner to source an existing product or a
-						team to develop one from scratch, we work side by side with you — from
-						first sketch or first sample to the finished product on the shelf.
-					</p>
-				</div>
-				<ul class="stats">
-					<li><strong>20</strong><span>years of experience</span></li>
-					<li><strong>HK</strong><span>based, Asia-wide network</span></li>
-					<li><strong>8</strong><span>global brands served</span></li>
+				<p class="more-link"><a href="/case-studies">See all case studies →</a></p>
+				<ul class="cat-links">
+					{categoryLinks.map((c) => <li><a href={c.href}>{c.name}</a></li>)}
 				</ul>
 			</div>
 		</section>
 
-		<!-- CONTACT -->
+		<!-- COMPANY INFO + CONTACT -->
 		<section id="contact" class="contact">
 			<div class="wrap contact-inner">
 				<p class="kicker">Contact</p>
 				<h2>Think we'd be a good fit for your business?</h2>
-				<p>Get in touch today to set up an initial meeting.</p>
+				<p>
+					Get in touch today to set up an initial meeting. Brand in Progress is a
+					product sourcing and development company based in Hong Kong, working with
+					clients across Europe and Asia.
+				</p>
 
 				{
 					CONTACT_FORM_ENABLED ? (
@@ -300,17 +234,6 @@ const clients = [
 		</section>
 	</main>
 
-	<footer>
-		<div class="wrap footer-inner">
-			<img src="/logo.png" alt="" width="28" height="28" />
-			<p>© 2026 Brand in Progress — Hong Kong</p>
-			<span class="footer-links">
-				<a href="/privacy">Privacy Policy</a>
-				<a href="/terms">Terms of Use</a>
-			</span>
-		</div>
-	</footer>
-
 	{CONTACT_FORM_ENABLED && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />}
 
 	<script>
@@ -345,60 +268,6 @@ const clients = [
 </Base>
 
 <style>
-	/* NAV */
-	.nav {
-		position: sticky;
-		top: 0;
-		background: rgba(250, 250, 248, 0.92);
-		backdrop-filter: blur(8px);
-		border-bottom: 1px solid var(--line);
-		z-index: 10;
-	}
-	.nav-inner {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0.7rem 1.5rem;
-	}
-	.brand {
-		display: flex;
-		align-items: center;
-		gap: 0.6rem;
-		text-decoration: none;
-		color: var(--ink);
-		font-weight: 700;
-		letter-spacing: 0.02em;
-	}
-	.brand img {
-		border-radius: 6px;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		gap: 1.4rem;
-	}
-	nav a {
-		text-decoration: none;
-		color: var(--ink);
-		font-weight: 500;
-		font-size: 0.95rem;
-	}
-	nav a:hover {
-		color: var(--brand);
-	}
-	.btn-nav {
-		background: var(--brand);
-		color: var(--ink) !important;
-		font-weight: 700 !important;
-		padding: 0.5rem 1.3rem;
-		border-radius: 999px;
-		transition: transform 0.15s ease, box-shadow 0.15s ease;
-	}
-	.btn-nav:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 6px 16px rgba(245, 184, 0, 0.45);
-	}
-
 	/* HERO */
 	.hero {
 		padding: 5rem 0 4rem;
@@ -507,140 +376,86 @@ const clients = [
 		font-size: 0.95rem;
 	}
 
-	/* CASE STUDIES */
-	.work {
+	/* MAIN PROJECTS */
+	.projects {
 		background: #fff;
 		border-top: 1px solid var(--line);
 		border-bottom: 1px solid var(--line);
 	}
-	.cases {
+	.proj-grid {
 		margin-top: 2.5rem;
 		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		gap: 1.4rem;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.2rem;
 	}
-	.case-card {
-		grid-column: span 2;
+	.proj-card {
 		border: 1px solid var(--line);
-		border-radius: 16px;
+		border-radius: 14px;
 		overflow: hidden;
 		background: var(--paper);
+		text-decoration: none;
+		color: var(--ink);
 		transition:
 			transform 0.15s ease,
 			box-shadow 0.15s ease;
 	}
-	.case-card:nth-child(1),
-	.case-card:nth-child(2) {
-		grid-column: span 3;
-	}
-	.case-card:hover {
+	.proj-card:hover {
 		transform: translateY(-4px);
 		box-shadow: 0 16px 40px rgba(20, 20, 20, 0.1);
 	}
-	.case-img {
+	.proj-img {
 		background: #fff;
-		padding: 0.8rem;
+		padding: 0.6rem;
 	}
-	.case-img img {
-		width: 100%;
-		height: 230px;
-		object-fit: contain;
-	}
-	.case-body {
-		padding: 0.6rem 1.4rem 1.5rem;
-	}
-	.case-body h3 {
-		margin: 0.35rem 0 0.5rem;
-		font-size: 1.15rem;
-	}
-	.case-body p {
-		color: var(--muted);
-		font-size: 0.95rem;
-	}
-
-	/* CATEGORIES */
-	.cats-grid {
-		margin-top: 2.5rem;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-		gap: 1.2rem;
-	}
-	.cat-card {
-		border: 1px solid var(--line);
-		border-radius: 14px;
-		overflow: hidden;
-		background: #fff;
-	}
-	.cat-img {
-		background: #fff;
-		padding: 0.5rem;
-	}
-	.cat-img img {
+	.proj-img img {
 		width: 100%;
 		height: 150px;
 		object-fit: contain;
 	}
-	.cat-placeholder {
-		height: 150px;
-		padding: 0;
-		display: grid;
-		place-items: center;
-		background: linear-gradient(135deg, var(--brand) 0%, #ffd75e 100%);
-		font-weight: 800;
-		font-size: 1.6rem;
+	.proj-body {
+		padding: 0.5rem 1.1rem 1.1rem;
+	}
+	.proj-body h3 {
+		font-size: 1.02rem;
+		margin-top: 0.3rem;
+	}
+	.more-link {
+		margin-top: 1.8rem;
+	}
+	.more-link a {
 		color: var(--ink);
-		letter-spacing: 0.08em;
+		font-weight: 700;
+		text-decoration: none;
+		border-bottom: 2px solid var(--brand);
 	}
-	.cat-card h3 {
-		font-size: 1rem;
-		margin: 0.7rem 1rem 0.3rem;
-	}
-	.cat-card p {
-		color: var(--muted);
-		font-size: 0.87rem;
-		margin: 0 1rem 1rem;
-	}
-
-	/* ABOUT */
-	.about {
-		background: var(--ink);
-		color: #f3f1ec;
-	}
-	.about .kicker {
+	.more-link a:hover {
 		color: var(--brand);
 	}
-	.about-inner {
-		display: grid;
-		grid-template-columns: 1.4fr 0.6fr;
-		gap: 3rem;
-		align-items: start;
-	}
-	.about p {
-		margin-top: 1rem;
-		color: #cfccc4;
-	}
-	.about h2 {
-		margin-top: 0.6rem;
-	}
-	.stats {
+	.cat-links {
 		list-style: none;
-		padding: 0;
-		display: grid;
-		gap: 1.2rem;
+		padding: 1.6rem 0 0;
+		margin-top: 1.6rem;
+		border-top: 1px solid var(--line);
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
 	}
-	.stats li {
-		border: 1px solid #333;
-		border-radius: 14px;
-		padding: 1.2rem 1.4rem;
+	.cat-links a {
+		display: inline-block;
+		text-decoration: none;
+		color: var(--muted);
+		border: 1px solid var(--line);
+		border-radius: 999px;
+		padding: 0.4rem 1rem;
+		font-size: 0.88rem;
+		font-weight: 600;
+		transition:
+			border-color 0.15s ease,
+			color 0.15s ease;
 	}
-	.stats strong {
-		display: block;
-		font-size: 1.9rem;
-		color: var(--brand);
-	}
-	.stats span {
-		color: #cfccc4;
-		font-size: 0.9rem;
+	.cat-links a:hover {
+		border-color: var(--brand);
+		color: var(--ink);
 	}
 
 	/* CONTACT */
@@ -651,7 +466,6 @@ const clients = [
 	.contact h2 {
 		margin: 0.6rem 0 0.8rem;
 	}
-	.contact > .wrap > p,
 	.contact-inner > p {
 		color: var(--muted);
 	}
@@ -731,54 +545,13 @@ const clients = [
 	.contact-meta a:hover {
 		color: var(--brand);
 	}
-	.contact-meta svg {
-		flex: none;
-	}
-
-	/* FOOTER */
-	footer {
-		border-top: 1px solid var(--line);
-		padding: 1.4rem 0;
-	}
-	.footer-inner {
-		display: flex;
-		align-items: center;
-		gap: 0.7rem;
-		color: var(--muted);
-		font-size: 0.85rem;
-		flex-wrap: wrap;
-	}
-	.footer-inner img {
-		border-radius: 5px;
-	}
-	.footer-links {
-		margin-left: auto;
-		display: flex;
-		gap: 1.2rem;
-	}
-	.footer-links a {
-		color: var(--muted);
-		text-decoration: none;
-	}
-	.footer-links a:hover {
-		color: var(--brand);
-	}
 
 	@media (max-width: 860px) {
-		.hero-inner,
-		.about-inner {
+		.hero-inner {
 			grid-template-columns: 1fr;
 		}
 		.hero-img {
-			max-width: 420px;
-		}
-		.case-card,
-		.case-card:nth-child(1),
-		.case-card:nth-child(2) {
-			grid-column: span 6;
-		}
-		nav a:not(.btn-nav) {
-			display: none;
+			max-width: 480px;
 		}
 		.form-row {
 			grid-template-columns: 1fr;

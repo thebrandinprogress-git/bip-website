@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL, LINKEDIN_URL } from '../consts';
+---
+
+<Base
+	title="About Us — Brand in Progress"
+	description="Brand in Progress is a Hong Kong-based product sourcing and development company founded by Gianluca Accardo, product development engineer with 20 years of experience between Europe and Asia."
+>
+	<main>
+		<section class="page-head">
+			<div class="wrap about-grid">
+				<div>
+					<p class="kicker">About us</p>
+					<h1>A bridge between Europe and Asia's factory floor.</h1>
+					<p>
+						Brand in Progress is a product sourcing and development company based in
+						Hong Kong, founded by <strong>Gianluca Accardo</strong> — a product
+						development engineer with 20 years of experience across design,
+						industrial production, and corporate operations between Europe and Asia.
+					</p>
+					<p>
+						Gianluca started his career in his family workshop in Italy, where he
+						learned the fundamentals of plastic materials and production processes.
+						After graduating, he took on roles of increasing responsibility —
+						leading him to Hong Kong, where he managed product development and
+						production for international companies, from eyewear at Safilo Far East
+						to licensed toys with Giochi Preziosi (Disney Frozen 2) and fashion
+						collections for European brands.
+					</p>
+					<p>
+						That journey built two things that now power Brand in Progress: a
+						<strong>trusted network of factories across Asia</strong>, vetted in
+						person over two decades, and the <strong>engineering know-how</strong>
+						to design what can't be sourced. We work side by side with our clients —
+						from first sketch or first sample to the finished product on the shelf.
+					</p>
+				</div>
+				<aside class="facts">
+					<ul class="stats">
+						<li><strong>20</strong><span>years of experience</span></li>
+						<li><strong>HK</strong><span>based, Asia-wide factory network</span></li>
+						<li><strong>8</strong><span>global brands served</span></li>
+					</ul>
+					<div class="fact-card">
+						<h3>How we work</h3>
+						<ul>
+							<li>One point of contact, end to end</li>
+							<li>Factories vetted in person</li>
+							<li>Engineering-first mindset</li>
+							<li>Transparent pricing and timelines</li>
+						</ul>
+					</div>
+					<a class="btn" href={`mailto:${CONTACT_EMAIL}`}>Work with us</a>
+				</aside>
+			</div>
+		</section>
+
+		<section class="journey">
+			<div class="wrap">
+				<p class="kicker">The journey</p>
+				<h2>From a family workshop to Hong Kong.</h2>
+				<ol class="timeline">
+					<li>
+						<span class="t-year">Italy</span>
+						<p>Family workshop — hands-on foundations in plastics, materials, and production processes.</p>
+					</li>
+					<li>
+						<span class="t-year">Eyewear</span>
+						<p>Safilo Far East — product development in one of Italy's leading eyewear companies.</p>
+					</li>
+					<li>
+						<span class="t-year">Toys & licensing</span>
+						<p>Giochi Preziosi — development of Disney Frozen 2 licensed toys and own-brand action figures.</p>
+					</li>
+					<li>
+						<span class="t-year">Hong Kong</span>
+						<p>Brand in Progress — sourcing and development partner for clients in Europe and Asia.</p>
+					</li>
+				</ol>
+			</div>
+		</section>
+	</main>
+</Base>
+
+<style>
+	.page-head {
+		padding: 4rem 0 4.5rem;
+	}
+	.about-grid {
+		display: grid;
+		grid-template-columns: 1.5fr 0.8fr;
+		gap: 3rem;
+		align-items: start;
+	}
+	h1 {
+		font-size: clamp(1.9rem, 4vw, 2.8rem);
+		margin: 0.6rem 0 1.4rem;
+	}
+	.about-grid p {
+		color: var(--muted);
+		margin-bottom: 1rem;
+	}
+	.about-grid p strong {
+		color: var(--ink);
+	}
+	.facts {
+		display: grid;
+		gap: 1.2rem;
+	}
+	.stats {
+		list-style: none;
+		padding: 0;
+		display: grid;
+		gap: 1rem;
+	}
+	.stats li {
+		border: 1px solid var(--line);
+		background: #fff;
+		border-radius: 14px;
+		padding: 1.1rem 1.3rem;
+	}
+	.stats strong {
+		display: block;
+		font-size: 1.8rem;
+		color: var(--brand);
+	}
+	.stats span {
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+	.fact-card {
+		border: 1px solid var(--line);
+		background: #fff;
+		border-radius: 14px;
+		padding: 1.3rem 1.4rem;
+	}
+	.fact-card h3 {
+		font-size: 1rem;
+		margin-bottom: 0.6rem;
+	}
+	.fact-card ul {
+		padding-left: 1.2rem;
+		color: var(--muted);
+		font-size: 0.93rem;
+		display: grid;
+		gap: 0.35rem;
+	}
+	.facts .btn {
+		justify-self: start;
+	}
+
+	.journey {
+		background: var(--ink);
+		color: #f3f1ec;
+	}
+	.journey h2 {
+		margin-top: 0.6rem;
+	}
+	.timeline {
+		list-style: none;
+		padding: 0;
+		margin-top: 2.2rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+		gap: 1.2rem;
+	}
+	.timeline li {
+		border: 1px solid #333;
+		border-radius: 14px;
+		padding: 1.3rem 1.4rem;
+	}
+	.t-year {
+		display: block;
+		color: var(--brand);
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-size: 0.82rem;
+		margin-bottom: 0.5rem;
+	}
+	.timeline p {
+		color: #cfccc4;
+		font-size: 0.93rem;
+	}
+	@media (max-width: 860px) {
+		.about-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

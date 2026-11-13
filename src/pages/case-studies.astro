@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+
+const studies = [
+	{
+		id: 'goguru',
+		img: '/images/goguru-lineup.jpg',
+		title: 'GOGURU Swimming Goggles',
+		sector: 'Sport & Action',
+		text: [
+			'GOGURU is a swimming goggle line that combines the strength and reliability of sport equipment with the elegance of a fashion accessory — the name comes from the Japanese word for "goggles".',
+			'We followed the project from concept and 2D drawings through 3D engineering, materials selection, and production support, delivering a full collection in multiple colors and finishes.',
+		],
+	},
+	{
+		id: 'grip',
+		img: '/images/grip.jpg',
+		title: 'Ergonomic Scuba Hand Grip',
+		sector: 'Ergonomic Design',
+		text: [
+			'Developed for a leading Italian scuba diving equipment brand, this grip was engineered inside-out: the internal mechanism came first, because every millimetre of physical space had to be known before shaping the exterior.',
+			'The result is an ergonomic housing that fits naturally in the hand while protecting a precise mechanical core — a textbook case of engineering-driven design.',
+		],
+	},
+	{
+		id: 'medical',
+		img: '/images/medical.jpg',
+		title: 'ADIPOPIMER Medical Device',
+		sector: 'Medical & Wellness — KORPO, Genova',
+		text: [
+			'The ADIPOPIMER is a small disposable hand blender custom-designed for KORPO, a medical company based in Genova, Italy, for a plastic surgery application.',
+			'The device helps the surgeon thin extracted adipose tissue and make it suitable for injection using standard syringes — a compact product where hygiene, precision, and manufacturability all had to align.',
+		],
+	},
+	{
+		id: 'toys',
+		img: '/images/toys.jpg',
+		title: 'Frozen 2 Licensed Toys',
+		sector: 'Toys & Collectibles — Disney / Giochi Preziosi',
+		text: [
+			'For the release of Disney Frozen 2, we developed wearable and collectible toys for Giochi Preziosi — including the Magic Ice Sleeve, which lets kids spray water like snow through a special internal nebulizer, and the "Whisper & Glow" collectible figures that light up when you blow on them.',
+			'Electronic toys must pass strict conformity testing — the biggest challenge was engineering reliable, child-safe mechanisms at toy-industry cost targets.',
+		],
+		link: { href: '/categories/toys', label: 'Explore the Toys category →' },
+	},
+	{
+		id: 'riviera',
+		img: '/images/riviera.jpg',
+		title: 'Riviera Beach Collection',
+		sector: 'Fashion & Lifestyle — RIVIERA',
+		text: [
+			'A complete beach collection for RIVIERA: bucket bags and flip-flops designed together so every piece works in harmony — 16 SKUs in total.',
+			'We covered the full journey: 2D drawings, material research (including a custom wood-grain EVA texture for the soles), specification mapping, production follow-up, and the marketing photoshoot.',
+		],
+		link: { href: '/categories/fashion', label: 'Explore the Fashion category →' },
+	},
+];
+
+const noteworthy = [
+	{
+		title: 'Carrera Foldable Helmet',
+		text: 'An innovative foldable cycling helmet developed with Carrera — early development across Europe and Asia.',
+	},
+	{
+		title: 'Rocket Design Households',
+		text: 'Product development for Rocket, a young company designing lifestyle household products.',
+	},
+	{
+		title: 'REPLAY Visual Merchandising',
+		text: 'VM engineering and POP production for REPLAY stores — including displays made from motorbike helmet visors.',
+	},
+];
+---
+
+<Base
+	title="Case Studies — Brand in Progress"
+	description="A selection of the most iconic product developments we have followed: sport equipment, medical devices, licensed toys, and fashion collections."
+>
+	<main>
+		<section class="page-head">
+			<div class="wrap">
+				<p class="kicker">Case studies</p>
+				<h1>A small selection of our most iconic developments.</h1>
+				<p class="lead">
+					Every project is a partnership: we follow products from the first sketch
+					or sample to the finished piece on the shelf.
+				</p>
+			</div>
+		</section>
+
+		<section class="studies">
+			<div class="wrap">
+				{
+					studies.map((s, i) => (
+						<article class="study" id={s.id}>
+							<div class="study-img">
+								<img src={s.img} alt={s.title} loading={i === 0 ? 'eager' : 'lazy'} />
+							</div>
+							<div class="study-body">
+								<p class="kicker">{s.sector}</p>
+								<h2>{s.title}</h2>
+								{s.text.map((p) => <p>{p}</p>)}
+								{s.link && <a class="text-link" href={s.link.href}>{s.link.label}</a>}
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="noteworthy">
+			<div class="wrap">
+				<p class="kicker">Noteworthy experiences</p>
+				<h2>More work we're proud of</h2>
+				<div class="note-grid">
+					{
+						noteworthy.map((n) => (
+							<article>
+								<h3>{n.title}</h3>
+								<p>{n.text}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+</Base>
+
+<style>
+	.page-head {
+		padding: 4rem 0 2rem;
+	}
+	.page-head h1 {
+		font-size: clamp(1.9rem, 4vw, 2.8rem);
+		max-width: 40rem;
+		margin-top: 0.6rem;
+	}
+	.lead {
+		color: var(--muted);
+		margin-top: 1rem;
+		max-width: 36rem;
+	}
+	.studies {
+		padding-top: 1rem;
+	}
+	.study {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2.6rem;
+		align-items: center;
+		padding: 2.6rem 0;
+		border-top: 1px solid var(--line);
+	}
+	.study:nth-child(even) .study-img {
+		order: 2;
+	}
+	.study-img {
+		background: #fff;
+		border: 1px solid var(--line);
+		border-radius: 16px;
+		padding: 1rem;
+	}
+	.study-img img {
+		width: 100%;
+		max-height: 340px;
+		object-fit: contain;
+	}
+	.study-body h2 {
+		font-size: 1.5rem;
+		margin: 0.4rem 0 0.8rem;
+	}
+	.study-body p {
+		color: var(--muted);
+		margin-bottom: 0.8rem;
+	}
+	.text-link {
+		display: inline-block;
+		margin-top: 0.4rem;
+		color: var(--ink);
+		font-weight: 700;
+		text-decoration: none;
+		border-bottom: 2px solid var(--brand);
+	}
+	.text-link:hover {
+		color: var(--brand);
+	}
+	.noteworthy {
+		background: #fff;
+		border-top: 1px solid var(--line);
+	}
+	.note-grid {
+		margin-top: 2rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.2rem;
+	}
+	.note-grid article {
+		border: 1px solid var(--line);
+		border-radius: 14px;
+		padding: 1.4rem;
+		background: var(--paper);
+	}
+	.note-grid h3 {
+		font-size: 1.05rem;
+		margin-bottom: 0.5rem;
+	}
+	.note-grid p {
+		color: var(--muted);
+		font-size: 0.93rem;
+	}
+	@media (max-width: 860px) {
+		.study {
+			grid-template-columns: 1fr;
+			gap: 1.4rem;
+		}
+		.study:nth-child(even) .study-img {
+			order: 0;
+		}
+	}
+</style>

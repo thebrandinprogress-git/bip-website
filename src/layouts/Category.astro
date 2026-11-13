@@ -1,0 +1,132 @@
+---
+import Base from './Base.astro';
+
+interface Section {
+	heading: string;
+	img?: string;
+	text: string[];
+}
+
+interface Props {
+	title: string;
+	kicker: string;
+	description: string;
+	intro: string;
+	sections: Section[];
+}
+
+const { title, kicker, description, intro, sections } = Astro.props;
+---
+
+<Base title={`${title} — Brand in Progress`} description={description}>
+	<main>
+		<section class="page-head">
+			<div class="wrap">
+				<p class="kicker"><a href="/#services">Categories</a> / {kicker}</p>
+				<h1>{title}</h1>
+				<p class="lead">{intro}</p>
+			</div>
+		</section>
+
+		<section class="blocks">
+			<div class="wrap">
+				{
+					sections.map((s, i) => (
+						<article class="block">
+							{s.img && (
+								<div class="block-img">
+									<img src={s.img} alt={s.heading} loading={i === 0 ? 'eager' : 'lazy'} />
+								</div>
+							)}
+							<div class="block-body">
+								<h2>{s.heading}</h2>
+								{s.text.map((p) => <p>{p}</p>)}
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</section>
+
+		<section class="cta-band">
+			<div class="wrap">
+				<h2>Have a product in mind for this category?</h2>
+				<a class="btn" href="/#contact">Tell us about it</a>
+			</div>
+		</section>
+	</main>
+</Base>
+
+<style>
+	.page-head {
+		padding: 4rem 0 1.5rem;
+	}
+	.kicker a {
+		color: inherit;
+		text-decoration: none;
+		border-bottom: 1px solid var(--brand);
+	}
+	h1 {
+		font-size: clamp(1.9rem, 4vw, 2.8rem);
+		margin-top: 0.6rem;
+	}
+	.lead {
+		color: var(--muted);
+		margin-top: 1rem;
+		max-width: 40rem;
+		font-size: 1.05rem;
+	}
+	.blocks {
+		padding-top: 1rem;
+	}
+	.block {
+		display: grid;
+		grid-template-columns: 0.9fr 1.1fr;
+		gap: 2.4rem;
+		align-items: center;
+		padding: 2.2rem 0;
+		border-top: 1px solid var(--line);
+	}
+	.block:nth-child(even) .block-img {
+		order: 2;
+	}
+	.block:has(.block-body:only-child) {
+		grid-template-columns: 1fr;
+	}
+	.block-img {
+		background: #fff;
+		border: 1px solid var(--line);
+		border-radius: 16px;
+		padding: 1rem;
+	}
+	.block-img img {
+		width: 100%;
+		max-height: 320px;
+		object-fit: contain;
+	}
+	.block-body h2 {
+		font-size: 1.35rem;
+		margin-bottom: 0.7rem;
+	}
+	.block-body p {
+		color: var(--muted);
+		margin-bottom: 0.7rem;
+	}
+	.cta-band {
+		background: var(--ink);
+		text-align: center;
+	}
+	.cta-band h2 {
+		color: #f3f1ec;
+		margin-bottom: 1.6rem;
+	}
+	@media (max-width: 860px) {
+		.block {
+			grid-template-columns: 1fr;
+			gap: 1.2rem;
+		}
+		.block:nth-child(even) .block-img {
+			order: 0;
+		}
+	}
+</style>
