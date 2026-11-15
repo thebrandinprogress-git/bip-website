@@ -11,5 +11,5 @@ export const INSTAGRAM_URL = 'https://www.instagram.com/brand.in.progress';
 
 // Contact form: paste the Cloudflare Turnstile SITE key here to switch the form on.
 // Full setup guide: docs/contact-form-setup.md
-export const TURNSTILE_SITE_KEY = '';
+export const TURNSTILE_SITE_KEY = '0x4AAAAAAGCF_P1dZLfDDB7v';
 export const CONTACT_FORM_ENABLED = TURNSTILE_SITE_KEY.length > 0;
